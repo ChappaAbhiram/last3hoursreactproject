@@ -6,11 +6,15 @@ function Cart() {
 
   return (
     <ul>
-      {cart.map((cartItem, index) => (
-        <li key={index}>
-          {cartItem.medicineName} - ${cartItem.price} - Quantity: {cartItem.quantity}
-        </li>
-      ))}
+      {cart && cart.length > 0 ? (
+        cart.map((cartItem, index) => (
+          <li key={index}>
+            {cartItem.medicineName} - ${cartItem.price} - Quantity: {cartItem.quantity}
+          </li>
+        ))
+      ) : (
+        <li>Your cart is empty</li>
+      )}
     </ul>
   );
 }
